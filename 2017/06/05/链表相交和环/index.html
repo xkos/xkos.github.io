@@ -90,12 +90,20 @@
 
 
 
-<meta property="og:type" content="website">
+<meta name="description" content="链表相交和环链表相交(假设无环的情况下) 对于两个链表,如果他们相交的话，那么他们最后的一个节点一定是相同的，否则是不相交的。因此判断两个链表是否相交就很简单了，分别遍历到两个链表的尾部，然后判断他们是否相同，如果相同，则相交；否则不相交。    判断出两个链表相交后就是判断他们的交点了。假设第一个链表长度为len1，第二个问len2，然后找出长度较长的，让长度较长的链表指针向后移动|len1 -">
+<meta property="og:type" content="article">
 <meta property="og:title" content="lilin&#39;s blog">
-<meta property="og:url" content="http://blog.xkos.me/index.html">
+<meta property="og:url" content="http://blog.xkos.me/2017/06/05/链表相交和环/index.html">
 <meta property="og:site_name" content="lilin&#39;s blog">
+<meta property="og:description" content="链表相交和环链表相交(假设无环的情况下) 对于两个链表,如果他们相交的话，那么他们最后的一个节点一定是相同的，否则是不相交的。因此判断两个链表是否相交就很简单了，分别遍历到两个链表的尾部，然后判断他们是否相同，如果相同，则相交；否则不相交。    判断出两个链表相交后就是判断他们的交点了。假设第一个链表长度为len1，第二个问len2，然后找出长度较长的，让长度较长的链表指针向后移动|len1 -">
+<meta property="og:image" content="http://ocifnr70m.bkt.clouddn.com/image/home/linktable.png">
+<meta property="og:image" content="http://ocifnr70m.bkt.clouddn.com/image/home/linktable_cir1.png">
+<meta property="og:image" content="http://ocifnr70m.bkt.clouddn.com/image/home/linktable_cir2.png">
+<meta property="og:updated_time" content="2017-06-05T03:28:52.196Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="lilin&#39;s blog">
+<meta name="twitter:description" content="链表相交和环链表相交(假设无环的情况下) 对于两个链表,如果他们相交的话，那么他们最后的一个节点一定是相同的，否则是不相交的。因此判断两个链表是否相交就很简单了，分别遍历到两个链表的尾部，然后判断他们是否相同，如果相同，则相交；否则不相交。    判断出两个链表相交后就是判断他们的交点了。假设第一个链表长度为len1，第二个问len2，然后找出长度较长的，让长度较长的链表指针向后移动|len1 -">
+<meta name="twitter:image" content="http://ocifnr70m.bkt.clouddn.com/image/home/linktable.png">
 
 
 
@@ -123,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://blog.xkos.me/"/>
+  <link rel="canonical" href="http://blog.xkos.me/2017/06/05/链表相交和环/"/>
 
 
 
 
 
-  <title>lilin's blog</title>
+  <title> | lilin's blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="">
@@ -164,9 +172,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -249,9 +255,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -277,9 +283,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/06/05/链表相交和环/" itemprop="url">Unbenannt</a></h1>
+          <h1 class="post-title" itemprop="name headline"></h1>
         
 
         <div class="post-meta">
@@ -312,7 +316,7 @@
               </span>
               
                 <a href="/2017/06/05/链表相交和环/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::http://blog.xkos.me/2017/06/05/链表相交和环/" class="cy_cmt_count" data-xid="2017/06/05/链表相交和环/" itemprop="commentsCount" ></span>
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2017/06/05/链表相交和环/" itemprop="commentsCount"></span>
                 </a>
               
             
@@ -337,9 +341,7 @@
       
 
       
-        
-          
-            <h1 id="链表相交和环"><a href="#链表相交和环" class="headerlink" title="链表相交和环"></a>链表相交和环</h1><h3 id="链表相交-假设无环的情况下"><a href="#链表相交-假设无环的情况下" class="headerlink" title="链表相交(假设无环的情况下)"></a>链表相交(假设无环的情况下)</h3><blockquote>
+        <h1 id="链表相交和环"><a href="#链表相交和环" class="headerlink" title="链表相交和环"></a>链表相交和环</h1><h3 id="链表相交-假设无环的情况下"><a href="#链表相交-假设无环的情况下" class="headerlink" title="链表相交(假设无环的情况下)"></a>链表相交(假设无环的情况下)</h3><blockquote>
 <p>对于两个链表,如果他们相交的话，那么他们最后的一个节点一定是相同的，否则是不相交的。因此判断两个链表是否相交就很简单了，分别遍历到两个链表的尾部，然后判断他们是否相同，如果相同，则相交；否则不相交。</p>
 </blockquote>
 <p><img src="http://ocifnr70m.bkt.clouddn.com/image/home/linktable.png" alt=""></p>
@@ -393,20 +395,27 @@
 </li>
 </ol>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <div>
+      
+        
+
       
     </div>
 
@@ -414,21 +423,22 @@
       
 
       
-
+        
       
 
       
+
       
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -436,6 +446,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="SOHUCS"></div>
+    
+  </div>
+
 
         </div>
         
@@ -455,8 +471,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -500,6 +525,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#链表相交和环"><span class="nav-number">1.</span> <span class="nav-text">链表相交和环</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#链表相交-假设无环的情况下"><span class="nav-number">1.0.1.</span> <span class="nav-text">链表相交(假设无环的情况下)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一个有环的链表-如何判断有环-如何得到环的入口点"><span class="nav-number">1.0.2.</span> <span class="nav-text">一个有环的链表,如何判断有环,如何得到环的入口点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两链表-在可能有环的情况下-判断是否相交-如果相交-得到交点"><span class="nav-number">1.0.3.</span> <span class="nav-text">两链表,在可能有环的情况下,判断是否相交,如果相交,得到交点</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -613,6 +654,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
 
   
 
@@ -653,7 +698,18 @@
 
 
   
-    <script id="cy_cmt_num" src="https://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cysya8T4N"></script>
+    <script type="text/javascript">
+    (function(){
+      var appid = 'cysya8T4N';
+      var conf = '4bf4941c672bda0cb90b2bed279ab9e9';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      if (width < 960) {
+      window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){
+        window.changyan.api.config({appid:appid,conf:conf})});
+      }
+    })();
+    </script>
+    <script type="text/javascript" src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
   
 
 
