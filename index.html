@@ -207,7 +207,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -217,7 +217,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -289,7 +289,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-06T23:47:44+08:00">
                 2017-06-06
@@ -338,14 +338,62 @@
 
       
         
-          链表
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/06/06/List intersection/">
-              Weiterlesen &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <h1 id="链表相交和环"><a href="#链表相交和环" class="headerlink" title="链表相交和环"></a>链表相交和环</h1><h3 id="链表相交-假设无环的情况下"><a href="#链表相交-假设无环的情况下" class="headerlink" title="链表相交(假设无环的情况下)"></a>链表相交(假设无环的情况下)</h3><blockquote>
+<p>对于两个链表,如果他们相交的话，那么他们最后的一个节点一定是相同的，否则是不相交的。因此判断两个链表是否相交就很简单了，分别遍历到两个链表的尾部，然后判断他们是否相同，如果相同，则相交；否则不相交。</p>
+</blockquote>
+<p><img src="http://ocifnr70m.bkt.clouddn.com/image/home/linktable.png" alt=""></p>
+<blockquote>
+<p>判断出两个链表相交后就是判断他们的交点了。假设第一个链表长度为len1，第二个问len2，然后找出长度较长的，让长度较长的链表指针向后移动|len1 - len2| (len1-len2的绝对值)，然后同时遍历两个链表，判断节点是否相同即可。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line">typedef struct node_t&#123;</div><div class="line">    int data;</div><div class="line">    struct node_t *next;</div><div class="line">&#125;node;</div><div class="line"></div><div class="line">node* find_node(node *head1, node *head2)&#123;</div><div class="line">    if(NULL == head1 || NULL == head2)&#123;</div><div class="line">    	//如果有为空的链表，肯定是不相交的</div><div class="line">        return NULL;</div><div class="line">    &#125;</div><div class="line">    node *p1, *p2;</div><div class="line">    p1 = head1;</div><div class="line">    p2 = head2;</div><div class="line">    int len1 = 0;</div><div class="line">    int len2 =0;</div><div class="line">    int diff = 0;</div><div class="line">    while(NULL != p1-&gt;next)&#123;</div><div class="line">        p1 = p1-&gt;next;</div><div class="line">        len1++;</div><div class="line">    &#125;</div><div class="line">    while(NULL != p2-&gt;next)&#123;</div><div class="line">        p2 = p2-&gt;next;</div><div class="line">        len2++;</div><div class="line">    &#125;</div><div class="line">     //如果最后一个节点不相同,返回NULL</div><div class="line">    if(p1 != p2)&#123;</div><div class="line">        return NULL;</div><div class="line">    &#125;</div><div class="line">    diff = abs(len1 - len2);</div><div class="line">    if(len1 &gt; len2)&#123;</div><div class="line">        p1 = head1;</div><div class="line">        p2 = head2;</div><div class="line"></div><div class="line">    &#125;else&#123;</div><div class="line">        p1 = head2;</div><div class="line">        p2 = head1;</div><div class="line">    &#125;</div><div class="line">    for(int i=0; i&lt;diff; i++)&#123;</div><div class="line">        p1 = p1-&gt;next;</div><div class="line">    &#125;</div><div class="line">    while(p1 != p2)&#123;</div><div class="line">        p1 = p1-&gt;next;</div><div class="line">        p2 = p2-&gt;next;</div><div class="line">    &#125;</div><div class="line">    return p1;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="一个有环的链表-如何判断有环-如何得到环的入口点"><a href="#一个有环的链表-如何判断有环-如何得到环的入口点" class="headerlink" title="一个有环的链表,如何判断有环,如何得到环的入口点"></a>一个有环的链表,如何判断有环,如何得到环的入口点</h3><blockquote>
+<p>链表中有环，其实也就是自相交。我们用两个指针pslow和pfast从头开始遍历链表，pslow每次前进一个节点，pfast每次前进两个结点，若存在环，则pslow和pfast肯定会在环中相遇，若不存在，则pslow和pfast能正常到达最后一个节点（实际上是到达NULL）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">// 判断链表中是否有环</div><div class="line">bool IsExitLoop(node *head)&#123;</div><div class="line">	if(head==NULL) &#123;</div><div class="line">        return NULL;</div><div class="line">    &#125;</div><div class="line">    node *pslow = head;</div><div class="line">    node *pfast = head;</div><div class="line">    do&#123;</div><div class="line">        if (pslow-&gt;next!=NULL &amp;&amp; pfast-&gt;next!=NULL &amp;&amp; pfast-&gt;next-&gt;next!=NULL) &#123;</div><div class="line">            pslow = pslow-&gt;next;</div><div class="line">            pfast = pfast-&gt;next-&gt;next;</div><div class="line">        &#125; else &#123;</div><div class="line">            return false;</div><div class="line">        &#125;</div><div class="line">    &#125; while (pslow != pfast);</div><div class="line">    return true;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>当pfast若与pslow相遇时，pslow肯定没有走遍历完链表，而pfast已经在环内循环了n圈(1&lt;=n)<br>假设pslow走了s步，则pfast走了2s步（pfast位置还等于s 只是在环上多转的n圈）<br>设环长为r，则：<br>2s = s + n <em> r ======&gt; s= n </em> r<br>设整个链表长L，入口环与相遇点距离为x，起点到环入口点的距离为a<br>a + x = n <em> r 则<br>a + x = (n – 1) </em> r + r = (n - 1) <em> r + L - a<br>a = (n - 1) </em> r + (L – a – x)<br>(L – a – x)为相遇点到环入口点的距离,由此可知:<br>从链表头到环入口点等于: (n-1)次循环内环 + 相遇点到环入口点<br>于是我们从链表头、与相遇点分别设一个指针，每次各走一步，两个指针必定相遇，且相遇第一点为环入口点。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">Node* findEnter(Node *head)&#123;</div><div class="line">    if(head==NULL) &#123;</div><div class="line">        return NULL;</div><div class="line">    &#125;</div><div class="line">    node *pslow = head;</div><div class="line">    node *pfast = head;</div><div class="line">    do&#123;</div><div class="line">        if (pslow-&gt;next!=NULL &amp;&amp; pfast-&gt;next!=NULL &amp;&amp; pfast-&gt;next-&gt;next!=NULL) &#123;</div><div class="line">            pslow = pslow-&gt;next;</div><div class="line">            pfast = pfast-&gt;next-&gt;next;</div><div class="line">        &#125; else &#123;</div><div class="line">            return NULL;</div><div class="line">        &#125;</div><div class="line">    &#125; while (pslow != pfast);</div><div class="line"></div><div class="line">    /*求出环的起点节点，并将其返回*/</div><div class="line">    pfast=head;</div><div class="line">    while(pslow!=pfast)&#123;</div><div class="line">        pslow=pslow-&gt;next;</div><div class="line">        pfast=pfast-&gt;next;</div><div class="line">    &#125;</div><div class="line">    return pslow;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="两链表-在可能有环的情况下-判断是否相交-如果相交-得到交点"><a href="#两链表-在可能有环的情况下-判断是否相交-如果相交-得到交点" class="headerlink" title="两链表,在可能有环的情况下,判断是否相交,如果相交,得到交点"></a>两链表,在可能有环的情况下,判断是否相交,如果相交,得到交点</h3><blockquote>
+<p>对于两个链表,可能有以下几种情况:</p>
+<ul>
+<li>两个链表都没有环<ul>
+<li>两链表不相交</li>
+<li>两链表相交</li>
+</ul>
+</li>
+<li>其中一个链表有环<ul>
+<li>两链表肯定不相交</li>
+</ul>
+</li>
+<li>两个链表都有环<ul>
+<li>两链表不相交</li>
+<li>两链表相交<ul>
+<li>两链表相交点在环之前或交点和环入口点一样,,即,两链表环入口点一样<br><img src="http://ocifnr70m.bkt.clouddn.com/image/home/linktable_cir1.png" alt=""></li>
+<li>两链表相交点在一个环内<br><img src="http://ocifnr70m.bkt.clouddn.com/image/home/linktable_cir2.png" alt=""></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<ol>
+<li>判断L1是否有环,获取出长度len1,如果有环,获取环入口点e1,如果没有,获取尾节点f1</li>
+<li>判断L2是否有环,获取出长度len2,如果有环,获取环入口点e2,如果没有,获取尾节点f2</li>
+<li>如果两个链表都没有环<ol>
+<li>判断尾节点是否一样,不一样则判断不相交,结束</li>
+<li>一样: 两链表重新遍历: 长链表先前进(MAX(len1,len2) - MIN(len1,len2)),之后两链表同时前进,直到找到同一个节点</li>
+</ol>
+</li>
+<li>如果一个链表有环,另一个没有, 则判断不相交,结束</li>
+<li>如果两个都有环<ol>
+<li>如果e1 == e2, 两链表重新遍历: 长链表先前进(MAX(len1,len2) - MIN(len1,len2)),之后两链表同时前进,直到找到同一个节点</li>
+<li>如果e1 != e2, 遍历其中一个环,判断另一个环的入口在不在这个环中</li>
+<li>如果在不在同一个环中, 则判断不相交,结束</li>
+<li>如果在同一个环中对于L1来说,e1就是交点,对于L2,e2就是交点<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div></pre></td><td class="code"><pre><div class="line">typedef struct Node&#123;</div><div class="line">        int value;</div><div class="line">        Node* pNext;</div><div class="line">    &#125;* List;</div><div class="line"></div><div class="line">    Node* IsListCross(List L1, List L2)&#123;</div><div class="line">       if (L1 == NULL || L2 == NULL)&#123;</div><div class="line">           return NULL;</div><div class="line">       &#125;</div><div class="line">       int len1 = 0;                //L1的长度</div><div class="line">       int len2 = 0;                //L2的长度</div><div class="line">       bool L1HasLoop = false;        //L1是否有环</div><div class="line">       bool L2HasLoop = false;        //L2是否有环</div><div class="line">       Node *crossEntry1 = NULL, *crossEntry2 = NULL, *end1 = NULL, *end2 = NULL;</div><div class="line">       Node *pNode1, *pNode2, *pNode3;    //临时节点指针</div><div class="line">       //①</div><div class="line">       pNode1 = L1;</div><div class="line">       pNode2 = L1;</div><div class="line">       while (pNode2 &amp;&amp; pNode2-&gt;pNext)&#123;</div><div class="line">           len1++;</div><div class="line">           pNode1 = pNode1-&gt;pNext;</div><div class="line">           pNode2 = pNode2-&gt;pNext-&gt;pNext;</div><div class="line">           if (pNode1 == pNode2)&#123;</div><div class="line">               L1HasLoop = true;</div><div class="line">               break;</div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line">       if (L1HasLoop)&#123;</div><div class="line">           pNode2 = L1;</div><div class="line">           while (pNode1 != pNode2)&#123;</div><div class="line">               len1++;</div><div class="line">               pNode1 = pNode1-&gt;pNext;</div><div class="line">               pNode2 = pNode2-&gt;pNext;</div><div class="line">           &#125;</div><div class="line">           crossEntry1 = pNode1;</div><div class="line">       &#125;else&#123;</div><div class="line">           pNode3 = pNode1;</div><div class="line">           while (pNode3-&gt;pNext)&#123;</div><div class="line">               len1++;</div><div class="line">               pNode3 = pNode3-&gt;pNext;</div><div class="line">           &#125;</div><div class="line">           end1 = pNode3;</div><div class="line">           len1++;</div><div class="line">       &#125;</div><div class="line">       //②</div><div class="line">       pNode1 = L2;</div><div class="line">       pNode2 = L2;</div><div class="line">       while (pNode2 &amp;&amp; pNode2-&gt;pNext)&#123;</div><div class="line">           len2++;</div><div class="line">           pNode1 = pNode1-&gt;pNext;</div><div class="line">           pNode2 = pNode2-&gt;pNext-&gt;pNext;</div><div class="line">           if (pNode1 == pNode2)&#123;</div><div class="line">               L2HasLoop = true;</div><div class="line">               break;</div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line">       if (L2HasLoop)&#123;</div><div class="line">           pNode2 = L2;</div><div class="line">           while (pNode1 != pNode2)&#123;</div><div class="line">               len2++;</div><div class="line">               pNode1 = pNode1-&gt;pNext;</div><div class="line">               pNode2 = pNode2-&gt;pNext;</div><div class="line">           &#125;</div><div class="line">           crossEntry2 = pNode1;</div><div class="line">       &#125;else&#123;</div><div class="line">           pNode3 = pNode1;</div><div class="line">           while (pNode3-&gt;pNext)&#123;</div><div class="line">               len2++;</div><div class="line">               pNode3 = pNode3-&gt;pNext;</div><div class="line">           &#125;</div><div class="line">          end2 = pNode3;</div><div class="line">          len2++;</div><div class="line">       &#125;</div><div class="line"></div><div class="line">       //③</div><div class="line">       if (L1HasLoop != L2HasLoop)</div><div class="line">       &#123;</div><div class="line">           return NULL;</div><div class="line">       &#125;</div><div class="line">       //④</div><div class="line">       else if (L1HasLoop == false)&#123;</div><div class="line">           if (end1 != end2)&#123;</div><div class="line">               return NULL;</div><div class="line">           &#125;</div><div class="line">       &#125;else&#123;</div><div class="line">			//⑤</div><div class="line">          //a1 != a2</div><div class="line">          if (crossEntry1 != crossEntry2)&#123;</div><div class="line">              bool onOneLoop = false;</div><div class="line">              pNode1 = crossEntry1-&gt;pNext;</div><div class="line">              while (crossEntry1 != pNode1) &#123;</div><div class="line">                  if (pNode1 == crossEntry2)&#123;</div><div class="line">                      onOneLoop = true;</div><div class="line">                      break;</div><div class="line">                  &#125;</div><div class="line">                  pNode1 = pNode1-&gt;pNext;</div><div class="line">              &#125;</div><div class="line">              //a1 != a2，且不在一个环中</div><div class="line">              if (!onOneLoop)&#123;</div><div class="line">                  return NULL;</div><div class="line">              &#125; else&#123;//a1 != a2，在一个环中</div><div class="line">                  return crossEntry1;</div><div class="line">              &#125;</div><div class="line">          &#125;</div><div class="line">      &#125;</div><div class="line">      //⑥</div><div class="line">      pNode1 = L1;</div><div class="line">      pNode2 = L2;</div><div class="line">      int gap;</div><div class="line">      if (len1 &gt; len2) &#123;</div><div class="line">          gap = len1 - len2;</div><div class="line">          while (gap) &#123;</div><div class="line">              pNode1 = pNode1-&gt;pNext;</div><div class="line">              gap--;</div><div class="line">          &#125;</div><div class="line">      &#125;else&#123;</div><div class="line">          gap = len2 - len1;</div><div class="line">          while (gap)&#123;</div><div class="line">              pNode2 = pNode2-&gt;pNext;</div><div class="line">              gap--;</div><div class="line">          &#125;</div><div class="line">      &#125;</div><div class="line">      while (pNode1 != pNode2)&#123;</div><div class="line">          pNode1 = pNode1-&gt;pNext;</div><div class="line">          pNode2 = pNode2-&gt;pNext;</div><div class="line">      &#125;</div><div class="line">      return pNode1;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ol>
+
+          
         
       
     </div>
@@ -424,7 +472,7 @@
             <div class="site-state-item site-state-posts">
               <a href="/archives">
                 <span class="site-state-item-count">1</span>
-                <span class="site-state-item-name">Artikel</span>
+                <span class="site-state-item-name">posts</span>
               </a>
             </div>
           
@@ -437,7 +485,7 @@
             <div class="site-state-item site-state-tags">
               
                 <span class="site-state-item-count">2</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-name">tags</span>
               
             </div>
           
@@ -487,7 +535,7 @@
 
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">

@@ -90,20 +90,20 @@
 
 
 
-<meta name="description" content="链表">
+<meta name="description" content="链表相交和环链表相交(假设无环的情况下) 对于两个链表,如果他们相交的话，那么他们最后的一个节点一定是相同的，否则是不相交的。因此判断两个链表是否相交就很简单了，分别遍历到两个链表的尾部，然后判断他们是否相同，如果相同，则相交；否则不相交。    判断出两个链表相交后就是判断他们的交点了。假设第一个链表长度为len1，第二个问len2，然后找出长度较长的，让长度较长的链表指针向后移动|len1 -">
 <meta name="keywords" content="数据结构,链表">
 <meta property="og:type" content="article">
 <meta property="og:title" content="链表相交和环">
 <meta property="og:url" content="http://blog.xkos.me/2017/06/06/List intersection/index.html">
 <meta property="og:site_name" content="lilin&#39;s blog">
-<meta property="og:description" content="链表">
+<meta property="og:description" content="链表相交和环链表相交(假设无环的情况下) 对于两个链表,如果他们相交的话，那么他们最后的一个节点一定是相同的，否则是不相交的。因此判断两个链表是否相交就很简单了，分别遍历到两个链表的尾部，然后判断他们是否相同，如果相同，则相交；否则不相交。    判断出两个链表相交后就是判断他们的交点了。假设第一个链表长度为len1，第二个问len2，然后找出长度较长的，让长度较长的链表指针向后移动|len1 -">
 <meta property="og:image" content="http://ocifnr70m.bkt.clouddn.com/image/home/linktable.png">
 <meta property="og:image" content="http://ocifnr70m.bkt.clouddn.com/image/home/linktable_cir1.png">
 <meta property="og:image" content="http://ocifnr70m.bkt.clouddn.com/image/home/linktable_cir2.png">
-<meta property="og:updated_time" content="2017-06-06T10:32:59.190Z">
+<meta property="og:updated_time" content="2017-06-06T10:34:50.490Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="链表相交和环">
-<meta name="twitter:description" content="链表">
+<meta name="twitter:description" content="链表相交和环链表相交(假设无环的情况下) 对于两个链表,如果他们相交的话，那么他们最后的一个节点一定是相同的，否则是不相交的。因此判断两个链表是否相交就很简单了，分别遍历到两个链表的尾部，然后判断他们是否相同，如果相同，则相交；否则不相交。    判断出两个链表相交后就是判断他们的交点了。假设第一个链表长度为len1，第二个问len2，然后找出长度较长的，让长度较长的链表指针向后移动|len1 -">
 <meta name="twitter:image" content="http://ocifnr70m.bkt.clouddn.com/image/home/linktable.png">
 
 
@@ -214,7 +214,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -224,7 +224,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -294,7 +294,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-06T23:47:44+08:00">
                 2017-06-06
@@ -330,10 +330,6 @@
 
           
 
-          
-              <div class="post-description">
-                  链表
-              </div>
           
 
         </div>
@@ -486,10 +482,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -510,7 +506,7 @@
             <div class="site-state-item site-state-posts">
               <a href="/archives">
                 <span class="site-state-item-count">1</span>
-                <span class="site-state-item-name">Artikel</span>
+                <span class="site-state-item-name">posts</span>
               </a>
             </div>
           
@@ -523,7 +519,7 @@
             <div class="site-state-item site-state-tags">
               
                 <span class="site-state-item-count">2</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-name">tags</span>
               
             </div>
           
@@ -589,7 +585,7 @@
 
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
